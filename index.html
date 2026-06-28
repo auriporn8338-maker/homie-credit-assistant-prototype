@@ -1,12 +1,66 @@
 <!doctype html>
 <html lang="th">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Homie Credit Assistant</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Homie Credit Assistant Prototype</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<h1>Homie Credit Assistant Prototype</h1>
-<p>Prototype for staff testing.</p>
+  <header class="hero">
+    <span class="badge">Prototype V2.0</span>
+    <h1>Homie Credit Assistant</h1>
+    <p>เครื่องมือทดลองสำหรับพนักงาน: คำนวณเบื้องต้น / Checklist / Self Learning / Q&A</p>
+    <div class="notice">ใช้เพื่อประกอบการปฏิบัติงานเบื้องต้น ไม่ใช่ผลอนุมัติสินเชื่อ และควรตรวจสอบหลักเกณฑ์ล่าสุดก่อนใช้งานจริง</div>
+  </header>
+
+  <main class="wrap">
+    <nav class="grid" aria-label="เมนูหลัก">
+      <button class="card active" data-panel="calculator"><b>01</b><strong>คำนวณสินเชื่อ</strong><small>ประเมินเบื้องต้น</small></button>
+      <button class="card" data-panel="checklist"><b>02</b><strong>Checklist</strong><small>เอกสารตามอาชีพ</small></button>
+      <button class="card" data-panel="learning"><b>03</b><strong>Self Learning</strong><small>คลังความรู้</small></button>
+      <button class="card" data-panel="qa"><b>04</b><strong>Q&A</strong><small>ถามตอบงานสินเชื่อ</small></button>
+    </nav>
+
+    <section id="calculator" class="panel active">
+      <h2>คำนวณสินเชื่อเบื้องต้น</h2>
+      <div class="form-grid">
+        <label>รายได้รวมต่อเดือน<input id="income" type="number" placeholder="45000"></label>
+        <label>ภาระหนี้ต่อเดือน<input id="debt" type="number" placeholder="12000"></label>
+      </div>
+      <button id="calcBtn" class="primary">ประเมิน</button>
+      <div id="calcResult" class="result muted">กรอกข้อมูลแล้วกดประเมิน</div>
+    </section>
+
+    <section id="checklist" class="panel">
+      <h2>Checklist เอกสาร</h2>
+      <div class="form-grid">
+        <label>ประเภทคำขอ<select id="requestType"></select></label>
+        <label>ประเภทอาชีพ<select id="borrowerType"></select></label>
+        <label>สถานะกิจการ<select id="businessStatus"></select></label>
+        <label>อาชีพอิสระ<select id="occupation"></select></label>
+        <label>วัตถุประสงค์กู้<select id="loanPurpose"></select></label>
+      </div>
+      <div class="row"><button id="buildChecklistBtn" class="primary">สร้าง Checklist</button><button id="copyChecklistBtn" class="secondary">คัดลอกผลลัพธ์</button></div>
+      <div id="checklistResult" class="result muted">เลือกข้อมูลแล้วกดสร้าง Checklist</div>
+    </section>
+
+    <section id="learning" class="panel">
+      <h2>Self Learning</h2>
+      <div id="learningFilters" class="chips"></div>
+      <div id="learningCards" class="cards-list"></div>
+    </section>
+
+    <section id="qa" class="panel">
+      <h2>Q&A งานสินเชื่อ</h2>
+      <label>คำถาม<input id="qaInput" type="text" placeholder="เช่น รับเหมาก่อสร้างใช้เอกสารอะไร"></label>
+      <button id="qaBtn" class="primary">ค้นคำตอบ</button>
+      <div id="qaResult" class="result muted">พิมพ์คำถามแล้วกดค้นคำตอบ</div>
+    </section>
+  </main>
+
+  <footer>Homie Credit Assistant Prototype • สำหรับทดลองใช้งานภายใน</footer>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
